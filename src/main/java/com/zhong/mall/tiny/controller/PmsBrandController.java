@@ -4,7 +4,10 @@ import com.zhong.mall.tiny.common.api.CommonPage;
 import com.zhong.mall.tiny.common.api.CommonResult;
 import com.zhong.mall.tiny.mbg.model.PmsBrand;
 import com.zhong.mall.tiny.service.PmsBrandService;
-import com.zhong.mall.tiny.service.PmsBrandService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,20 +23,22 @@ import java.util.List;
  * Created by zhong on 2019/4/19.
  */
 @Controller
+@Api(tags = "品牌展示")
 @RequestMapping("/brand")
 public class PmsBrandController {
     @Autowired
     private PmsBrandService demoService;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
-
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
+    @ApiOperation(value = "獲取所有品牌")
     @ResponseBody
     public CommonResult<List<PmsBrand>> getBrandList() {
         return CommonResult.success(demoService.listAllBrand());
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @ApiOperation(value = "創建品牌",notes = "用戶自主創建品牌")
     @ResponseBody
     public CommonResult createBrand(@RequestBody PmsBrand pmsBrand) {
         CommonResult commonResult;
@@ -49,6 +54,10 @@ public class PmsBrandController {
     }
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @ApiOperation(value = "更新品牌",notes = "根據id修改品牌")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id",value = "id",required = true,paramType = "query",dataType = "String")
+    })
     @ResponseBody
     public CommonResult updateBrand(@PathVariable("id") Long id, @RequestBody PmsBrand pmsBrandDto, BindingResult result) {
         CommonResult commonResult;
@@ -64,6 +73,10 @@ public class PmsBrandController {
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @ApiOperation(value = "刪除品牌",notes = "根據id刪除品牌")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id",value = "id",required = true,paramType = "query",dataType = "String")
+    })
     @ResponseBody
     public CommonResult deleteBrand(@PathVariable("id") Long id) {
         int count = demoService.deleteBrand(id);
@@ -78,6 +91,11 @@ public class PmsBrandController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "分頁展示產品")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum",value = "當前頁數",required = true,paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "pageSize",value = "每頁展示數",required = true,paramType = "query",dataType = "String")
+    })
     public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                                         @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize) {
         List<PmsBrand> brandList = demoService.listBrand(pageNum, pageSize);
@@ -86,6 +104,10 @@ public class PmsBrandController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "根據id取品牌")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id",value = "id",required = true,paramType = "query",dataType = "String")
+    })
     public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {
         return CommonResult.success(demoService.getBrand(id));
     }
