@@ -10,8 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 用于生产MBG的代码
- * Created by macro on 2018/4/26.
+ * @author zlyj
+ * @Date: 2020/1/9 14:20
+ * @Description
+ * @Package com.zhong.mall.tiny.mbg
  */
 public class Generator {
     public static void main(String[] args) throws Exception {

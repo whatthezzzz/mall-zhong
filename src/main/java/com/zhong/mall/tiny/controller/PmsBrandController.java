@@ -31,12 +31,11 @@ public class PmsBrandController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
-    @ApiOperation(value = "獲取所有品牌")
+    @ApiOperation(value = "獲取所有品牌列表")
     @ResponseBody
     public CommonResult<List<PmsBrand>> getBrandList() {
         return CommonResult.success(demoService.listAllBrand());
     }
-
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ApiOperation(value = "創建品牌",notes = "用戶自主創建品牌")
     @ResponseBody
@@ -91,7 +90,7 @@ public class PmsBrandController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    @ApiOperation(value = "分頁展示產品")
+    @ApiOperation(value = "分頁查詢商品列表")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "pageNum",value = "當前頁數",required = true,paramType = "query",dataType = "String"),
             @ApiImplicitParam(name = "pageSize",value = "每頁展示數",required = true,paramType = "query",dataType = "String")
@@ -104,7 +103,7 @@ public class PmsBrandController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    @ApiOperation(value = "根據id取品牌")
+    @ApiOperation(value = "獲取指定id的品牌")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id",value = "id",required = true,paramType = "query",dataType = "String")
     })
