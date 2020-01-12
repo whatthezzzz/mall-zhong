@@ -23,13 +23,13 @@ import java.util.List;
  * Created by zhong on 2019/4/19.
  */
 @Controller
-@Api(tags = "品牌展示")
+@Api(tags = "PmsBranController",description = "品牌管理")
 @RequestMapping("/brand")
 public class PmsBrandController {
     @Autowired
     private PmsBrandService demoService;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PmsBrandController.class);
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
     @ApiOperation(value = "獲取所有品牌列表")
     @ResponseBody
@@ -44,10 +44,10 @@ public class PmsBrandController {
         int count = demoService.createBrand(pmsBrand);
         if (count == 1) {
             commonResult = CommonResult.success(pmsBrand);
-            LOGGER.debug("createBrand success:{}", pmsBrand);
+            LOG.debug("createBrand success:{}", pmsBrand);
         } else {
             commonResult = CommonResult.failed("操作失败");
-            LOGGER.debug("createBrand failed:{}", pmsBrand);
+            LOG.debug("createBrand failed:{}", pmsBrand);
         }
         return commonResult;
     }
@@ -63,10 +63,10 @@ public class PmsBrandController {
         int count = demoService.updateBrand(id, pmsBrandDto);
         if (count == 1) {
             commonResult = CommonResult.success(pmsBrandDto);
-            LOGGER.debug("updateBrand success:{}", pmsBrandDto);
+            LOG.debug("updateBrand success:{}", pmsBrandDto);
         } else {
             commonResult = CommonResult.failed("操作失败");
-            LOGGER.debug("updateBrand failed:{}", pmsBrandDto);
+            LOG.debug("updateBrand failed:{}", pmsBrandDto);
         }
         return commonResult;
     }
@@ -80,10 +80,10 @@ public class PmsBrandController {
     public CommonResult deleteBrand(@PathVariable("id") Long id) {
         int count = demoService.deleteBrand(id);
         if (count == 1) {
-            LOGGER.debug("deleteBrand success :id={}", id);
+            LOG.debug("deleteBrand success :id={}", id);
             return CommonResult.success(null);
         } else {
-            LOGGER.debug("deleteBrand failed :id={}", id);
+            LOG.debug("deleteBrand failed :id={}", id);
             return CommonResult.failed("操作失败");
         }
     }
