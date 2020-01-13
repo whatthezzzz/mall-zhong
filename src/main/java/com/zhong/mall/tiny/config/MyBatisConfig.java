@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Configuration;
  * @Package com.zhong.mall.tiny.config
  */
 @Configuration
-@MapperScan("com.zhong.mall.tiny.mbg.mapper")
+@MapperScan({"com.zhong.mall.tiny.mbg.mapper","com.zhong.mall.tiny.dao"})
 public class MyBatisConfig {
 }

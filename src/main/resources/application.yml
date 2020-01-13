@@ -16,7 +16,8 @@ redis:
 mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
-    - classpath*:com/**/mapper/*.xml
+  type-aliases-package:
+    com.zhong.mall.tiny.mbg.model
 
 jwt:
   tokenHeader: Authorization

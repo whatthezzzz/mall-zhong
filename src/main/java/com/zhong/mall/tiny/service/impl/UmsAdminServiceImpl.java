@@ -1,12 +1,13 @@
 package com.zhong.mall.tiny.service.impl;
 
+import com.zhong.mall.tiny.common.utils.JwtTokenUtil;
 import com.zhong.mall.tiny.dao.UmsAdminRoleRelationDao;
 import com.zhong.mall.tiny.mbg.mapper.UmsAdminMapper;
 import com.zhong.mall.tiny.mbg.model.UmsAdmin;
 import com.zhong.mall.tiny.mbg.model.UmsAdminExample;
 import com.zhong.mall.tiny.mbg.model.UmsPermission;
 import com.zhong.mall.tiny.service.UmsAdminService;
-import com.zhong.mall.tiny.utils.JwtTokenUtil;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;

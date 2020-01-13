@@ -1,19 +1,13 @@
 package com.zhong.mall.tiny.service.impl;
 
 import com.alibaba.druid.util.StringUtils;
-import com.github.pagehelper.PageHelper;
 import com.zhong.mall.tiny.common.api.CommonResult;
-import com.zhong.mall.tiny.mbg.mapper.PmsBrandMapper;
-import com.zhong.mall.tiny.mbg.model.PmsBrand;
-import com.zhong.mall.tiny.mbg.model.PmsBrandExample;
-import com.zhong.mall.tiny.service.PmsBrandService;
 import com.zhong.mall.tiny.service.RedisService;
 import com.zhong.mall.tiny.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Random;
 
 /**

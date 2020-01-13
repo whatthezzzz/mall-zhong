@@ -3,6 +3,7 @@ package com.zhong.mall.tiny.mbg.mapper;
 import com.zhong.mall.tiny.mbg.model.UmsAdmin;
 import com.zhong.mall.tiny.mbg.model.UmsAdminExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UmsAdminMapper {

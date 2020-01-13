@@ -1,6 +1,6 @@
 package com.zhong.mall.tiny.component;
 
-import com.zhong.mall.tiny.utils.JwtTokenUtil;
+import com.zhong.mall.tiny.common.utils.JwtTokenUtil;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
