@@ -35,4 +35,10 @@ public interface UmsAdminService {
      * 获取用户所有权限（包括角色权限和+-权限）
      */
     List<UmsPermission> getPermissionList(Long adminId);
+
+    /**
+     * 登出
+     * @return
+     */
+    void logout();
 }

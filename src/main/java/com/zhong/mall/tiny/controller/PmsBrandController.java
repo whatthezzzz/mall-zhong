@@ -31,6 +31,8 @@ public class PmsBrandController {
     private PmsBrandService demoService;
 
     private static final Logger LOG = LoggerFactory.getLogger(PmsBrandController.class);
+
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
     @ApiOperation(value = "獲取所有品牌列表")
     @ResponseBody

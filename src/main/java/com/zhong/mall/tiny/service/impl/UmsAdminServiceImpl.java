@@ -96,6 +96,14 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         return token;
     }
 
+    @Override
+    public  void logout(){
+        try{
+
+        }catch (Exception e){
+            LOG.warn("操作失败:{}",e.getMessage());
+        }
+    }
 
     @Override
     public List<UmsPermission> getPermissionList(Long adminId) {

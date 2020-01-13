@@ -6,6 +6,7 @@ import com.zhong.mall.tiny.mbg.model.UmsAdmin;
 import com.zhong.mall.tiny.mbg.model.UmsPermission;
 import com.zhong.mall.tiny.service.UmsAdminService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -66,5 +67,12 @@ public class UmsAdminController {
         List<UmsPermission> permissionList = adminService.getPermissionList(adminId);
         return CommonResult.success(permissionList);
     }
+
+//    @ApiOperation("账号登出")
+//    @RequestMapping(value = "/logout",method = RequestMethod.POST)
+//    @RequestBody
+//    public CommonResult logout(){
+//        return CommonResult.success(getPermissionList());
+//    }
 
 }
