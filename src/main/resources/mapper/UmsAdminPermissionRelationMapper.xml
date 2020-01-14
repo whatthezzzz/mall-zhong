@@ -74,7 +74,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from ums_admin_permission_relation
+    from rmission_relation
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
