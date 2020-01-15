@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author zlyj
@@ -27,13 +29,19 @@ public class UmsMemberServiceImpl implements UmsMemberService {
 
     @Override
     public CommonResult generateAuthCode(String telephone) {
+        String regExp = "0?(13|14|15|16|18|17)[0-9]{9}";
+        Pattern p = Pattern.compile(regExp);
+        Matcher m = p.matcher(telephone);
+        if (m.find() == false){
+            return  CommonResult.failed("手机号错误请重新输入");
+        }
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < 6; i++) {
             sb.append(random.nextInt(10));
         }
         //验证码绑定手机号并存储到redis
-        redisService.set(REDIS_KEY_PREFIX_AUTH_CODE + telephone, sb.toString());
+        redisService.  set(REDIS_KEY_PREFIX_AUTH_CODE + telephone, sb.toString());
         redisService.expire(REDIS_KEY_PREFIX_AUTH_CODE + telephone, AUTH_CODE_EXPIRE_SECONDS);
         return CommonResult.success(sb.toString(), "获取验证码成功");
     }

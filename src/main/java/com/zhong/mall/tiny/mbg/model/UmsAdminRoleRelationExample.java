@@ -235,7 +235,7 @@ public class UmsAdminRoleRelationExample {
         }
 
         public Criteria andRoleIdEqualTo(Long value) {
-            addCriterion("role_id =", value, "roleId");
+            addCriterion(" =", value, "roleId");
             return (Criteria) this;
         }
 
