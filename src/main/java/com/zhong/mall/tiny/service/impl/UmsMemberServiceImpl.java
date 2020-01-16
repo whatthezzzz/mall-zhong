@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
  * @Package com.zhong.mall.tiny.service
  */
 @Service
-public class UmsMemberServiceImpl implements UmsMemberService {
+public class   UmsMemberServiceImpl implements UmsMemberService {
     @Autowired
     private RedisService redisService;
     @Value("${redis.key.prefix.authCode}")

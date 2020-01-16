@@ -6,8 +6,7 @@ spring:
     url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
     password: 961124
-
-redis:
+  redis:
     host: localhost # Redis服务器地址
     database: 0 # Redis数据库索引（默认为0）
     port: 6379 # Redis服务器连接端口
@@ -19,14 +18,16 @@ redis:
         max-idle: 8 # 连接池中的最大空闲连接
         min-idle: 0 # 连接池中的最小空闲连接
     timeout: 3000ms # 连接超时时间（毫秒）
-
-data:
+  data:
     elasticsearch:
       repositories:
         enabled: true
-      cluster-nodes: 127.0.0.1:9300 # es的连接地址及端口号
+      cluster-nodes: 127.0.0.1:9200 # es的连接地址及端口号
       cluster-name: elasticsearch # es集群的名称
-mongodb:
+    mongodb:
       host: localhost # mongodb的连接地址
       port: 27017 # mongodb的连接端口号
       database: mall-port # mongodb的连接的数据库
+
+
+
