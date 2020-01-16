@@ -18,11 +18,11 @@ import java.util.Date;
 public class MemberReadHistory {
     @Id
     private String id;
-    @Indexed(unique = true)
+    @Indexed
     private Long memberId;
     private String memberNickname;
     private String memberIcon;
-    @Indexed(unique = true)
+    @Indexed
     private Long productId;
     private String productName;
     private String productPic;
